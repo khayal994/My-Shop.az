@@ -127,21 +127,18 @@ padding: 10px 0;
 width: 100%;
 }
 
-.product-namexl {
-font-size: 1.5em;
-margin-top: -15px;
-}
+
 
 .product-descriptionxl {
-font-size: 0.9em;
+font-size: 0.8em;
 color: #555;
-margin: 10px 0;
+margin-left: 5px;
 }
 
 .product-pricesxl {
 display: flex;
 align-items: baseline;
-margin: 10px 0;
+margin-left: 5px;
 }
 
 .current-pricexl {
@@ -158,7 +155,7 @@ text-decoration: line-through;
 }
 
 .product-ratingxl {
-font-size: 1.2em;
+font-size: 1em;
 color: #f39c12;
 }
 
@@ -170,13 +167,12 @@ margin: 0 2px;
 display: flex;
 justify-content: flex-start;
 align-items: center;
-margin-bottom: 20px;
-padding: 10px 20px;
 background-color: transparent;
 color: #3498db;
 border: none;
 cursor: pointer;
-font-size: 1em;
+font-size: 10px;
+margin-left: 20px;
 }
 
 .cart-iconxl {
@@ -242,7 +238,7 @@ font-size: 1.2em;
         }
         .carousel-containerxl{
             margin-left: -10px;
-            margin-top: 250px;
+            margin-top: 270px;
         }
         .product-cardxl{
             background-color: #fff;
@@ -274,7 +270,7 @@ flex-shrink: 0;
     @media (max-width: 320px) {
         .carousel-containerxl{
             margin-left: -30px;
-            margin-top: 250px;
+            margin-top: 270px;
         }
         .logo h1 {
             position: absolute;
@@ -282,7 +278,7 @@ flex-shrink: 0;
             right: 140px;
         }
         .navbar-containerkat{
-            max-width: 310px;
+            max-width: 322px;
             
         }
         .product-cardxl{
@@ -507,7 +503,20 @@ flex-shrink: 0;
     .w3-sidebar{
         scrollbar-width: none;
     }
-
+    .animated-deliveryxl {
+    display: inline-block;
+    vertical-align: middle;
+    animation: float 6s infinite;
+    position: absolute;
+    left: 5px;
+  }
+  .animatedxl{
+      color: black;
+      font-size: 8px;
+      position: absolute;
+      left: 5px;
+      top: 210px;
+    }
 </style>
 
 </head>
@@ -695,12 +704,12 @@ flex-shrink: 0;
                 <img class="product-imagexl" src="sekil 1.jpg" alt="Product Image">
             </div>
             <div class="product-infoxl">
-                <h3 class="product-namexl"> Ayaqqabısı</h3>
-                <p class="product-descriptionxl">Yüksək keyfiyyətli kişi.....</p>
                 <div class="product-pricesxl">
                     <span class="current-pricexl">50₼</span>
                     <span class="old-pricexl">70₼</span>
                 </div>
+                <p class="product-descriptionxl">Son dərəcə rahatlıq və davamlılıq</p>
+                <span class="animated-deliveryxl animatedxl asxl">Çatdırılma Pulsuz 0₼</span>
                 <div class="product-ratingxl">
                     <span class="star">&#9733;</span>
                     <span class="star">&#9733;</span>
@@ -708,12 +717,35 @@ flex-shrink: 0;
                     <span class="star">&#9733;</span>
                     <span class="star">&#9734;</span>
                 </div>
-                <span class="animated-deliveryxl animatedxl asxl">Çatdırılma Pulsuz 0₼</span><br>
+
                 <button class="add-to-cartxl add-to-cartlar">Səbətə əlavə et <span class="cart-iconxl">&#128722;</span></button>
             </div>
         </div>
 
+        <div class="product-cardxl product-cardlar product-cardl product-cardx" data-category="all" data-namex="Qara Rəng Kofta oversizesss" data-pricex="$49.99" data-imagex="sekil 37.jpg" data-id="1" data-name="Məhsul 2" data-price="50" data-image="sekil 1.jpg" data-category-filter="Qara ss Ayaqqabısı kisi ayaqabısı" data-name-filter="Ayaqqabı" data-gender-filter="men" data-color-filter="black" data-size-filter="42" data-price-filter="50" data-brand-filter="brand1">
+            <div class="image-containerxl">
+                <div class="heart-iconxl like-iconx"></div>
+                <span class="badge bg-success position-absolute m-3">-30%</span>
+                <img class="product-imagexl" src="sekil 1.jpg" alt="Product Image">
+            </div>
+            <div class="product-infoxl">
+                <div class="product-pricesxl">
+                    <span class="current-pricexl">50₼</span>
+                    <span class="old-pricexl">70₼</span>
+                </div>
+                <p class="product-descriptionxl">Son dərəcə rahatlıq və davamlılıq</p>
+                <span class="animated-deliveryxl animatedxl asxl">Çatdırılma Pulsuz 0₼</span>
+                <div class="product-ratingxl">
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9734;</span>
+                </div>
 
+                <button class="add-to-cartxl add-to-cartlar">Səbətə əlavə et <span class="cart-iconxl">&#128722;</span></button>
+            </div>
+        </div>
 
         <div class="product-cardxl product-cardlar product-cardl product-cardx " data-category="electronics" data-namex="Qara Rəng Kofta oversize" data-pricex="$49.99" data-imagex="sekil 36.jpg" data-id="2" data-name="Məhsul 2" data-price="50" data-image="sekil 1.jpg" data-category-filter="Ayaqqabılar" data-name-filter="Kişi Ayaqqabısı" data-gender-filter="men" data-color-filter="black" data-size-filter="42" data-price-filter="50" data-brand-filter="brand1">
             <div class="image-containerxl">
@@ -721,12 +753,11 @@ flex-shrink: 0;
                 <div class="heart-iconxl like-iconx"></div>
             </div>
             <div class="product-infoxl">
-                <h3 class="product-namexl">Kişi Ayaqqabısı</h3>
-                <p class="product-descriptionxl">Yüksək keyfiyyətli kişi.....</p>
                 <div class="product-pricesxl">
                     <span class="current-pricexl">50₼</span>
                     <span class="old-pricexl">70₼</span>
                 </div>
+                <p class="product-descriptionxl">Yüksək keyfiyyətli kişi.....</p>
                 <div class="product-ratingxl">
                     <span class="star">&#9733;</span>
                     <span class="star">&#9733;</span>
