@@ -206,15 +206,16 @@ background-color: white;
 }
 
 .like-iconx::before {
-  content: "\2764"; /* Boş ürək ikonu */
-font-size: 1.2em;
+  content: "\f08a"; /* Boş ürək simvolu */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
 }
 
 .like-iconx.filled::before {
-  content: "\2764"; /* Dolu ürək simvolu */
-  /* Dolu ürək ikonu */
-font-size: 1.2em;
-color: red; /* Dolu ürəyin rəngi qırmızı olsun */
+  content: "\f004"; /* Dolu ürək simvolu */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: red; /* Dolu ürəyin rəngi qırmızı olsun */
 }
 
 .favorites-list-item {
