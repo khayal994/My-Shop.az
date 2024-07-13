@@ -202,7 +202,7 @@ font-size: 1.2em;
         .ww{
         z-index:6;
         width:250px;
-        height: 73%;
+        height: 76%;
         bottom: 0;
     }
     .top-bar {
@@ -221,9 +221,17 @@ font-size: 1.2em;
       }
     /* Responsive adjustments */
     @media (max-width: 768px) {
+        .sıfırla{
+            color: red;
+            text-decoration: underline;
+             cursor: pointer;
+             position: absolute;
+             top: 20px;
+             right: 20px;
+        }
         .ww{
         z-index:6;
-        width:250px;
+        width:100%;
         height: 100%;
         bottom: 0;
     }
@@ -268,6 +276,36 @@ flex-shrink: 0;
         }
     }
     @media (max-width: 320px) {
+        .sıfırla{
+            color: red;
+            text-decoration: underline;
+             cursor: pointer;
+            margin-top: -3px;
+        }
+        .w3-containers{
+            position: fixed;
+            background-color: #ddd;
+            top: 0;
+            width: 100%;
+            height: 40px;
+    }
+    .w3-containerH5{
+        position: absolute;
+        top: 7px;
+        margin-left: 120px;
+    }
+        .filterDesing{
+            width: 97%;
+            border-radius: 6px;
+            margin-left: 3px;
+
+        }
+        .ww{
+        z-index:6;
+        width:100%;
+        height: 100%;
+        bottom: 0;
+    }
         .carousel-containerxl{
             margin-left: -30px;
             margin-top: 270px;
@@ -517,6 +555,7 @@ flex-shrink: 0;
       left: 5px;
       top: 210px;
     }
+    
 </style>
 
 </head>
@@ -530,11 +569,15 @@ flex-shrink: 0;
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar ww w3-collapse w3-white w3-animate-left" id="mySidebar"><br>
 
-    <div class="w3-container">
-      <h5>Filtr</h5>
-    </div>
+    <div class="w3-containers">
+        <i class="fa-solid fa-reply as" onclick="applyFilterAndClose()"></i>
+      <h5 class="w3-containerH5">Filtrlər</h5>
+      <div class="filterxa">
+        <a id="resetFilters" class="sıfırla as" href="#" onclick="resetFilters()" >Sıfırla</a>
+    </div><hr>
+    </div><br>
     <div class="w3-bar-block">
-
+        
       <div class="filter">
           <label for="sizeFilter">Ölçü</label>
           <select id="sizeFilter" class="w3-input w3-border">
@@ -596,9 +639,8 @@ flex-shrink: 0;
             <label for="maxPriceFilter">Max Qiymət</label>
             <input type="number" class="w3-input w3-border" id="maxPriceFilter" placeholder="Max qiymət daxil edin">
         </div>
-
       </div>
-      <p><button class="w3-button w3-block w3-green w3-left-align" type="button" onclick="applyFilterAndClose()"><i class="fa fa-search w3-margin-right"></i> Filterlə</button></p>
+      <p><button  class="w3-button filterDesing w3-block w3-red w3-left-align" type="button" onclick="applyFilterAndClose()"><i class="fa fa-search w3-margin-right"></i> Filterlə</button></p>
       <br><br><br>
     </div>
   </nav>
@@ -4695,7 +4737,7 @@ flex-shrink: 0;
     </div>
 </div>
 
-<button id="backToTopBtn">Yuxarı Çıx</button>
+<button style="width: 110px;font-size: 14px;" id="backToTopBtn">Yuxarı Çıx <i class="fa fa-arrow-up" aria-hidden="true"></i></button>
 
 <script>
             function filterProducts() {
@@ -4763,7 +4805,18 @@ flex-shrink: 0;
         document.getElementById('noProductsMessage').style.display = 'none';
     }
 }
+function resetFilters() {
+    document.getElementById("searchInput").value = "";
+    document.getElementById("genderFilter").value = "";
+    document.getElementById("colorFilter").value = "";
+    document.getElementById("sizeFilter").value = "";
+    document.getElementById("minPriceFilter").value = "";
+    document.getElementById("maxPriceFilter").value = "";
+    document.getElementById("brandFilter").value = "";
+    filterProducts();
+}
 
+// finish 
 
 
 // Get the Sidebar

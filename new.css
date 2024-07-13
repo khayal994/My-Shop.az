@@ -211,7 +211,7 @@ font-size: 1.2em;
 }
 
 .like-iconx.filled::before {
-content: '❤'; /* Dolu ürək ikonu */
+  content: "♥";/* Dolu ürək ikonu */
 font-size: 1.2em;
 color: red; /* Dolu ürəyin rəngi qırmızı olsun */
 }
