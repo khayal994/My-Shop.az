@@ -206,12 +206,13 @@ background-color: white;
 }
 
 .like-iconx::before {
-content: '♡'; /* Boş ürək ikonu */
+  content: "\2764"; /* Boş ürək ikonu */
 font-size: 1.2em;
 }
 
 .like-iconx.filled::before {
-  content: "♥";/* Dolu ürək ikonu */
+  content: "\2764"; /* Dolu ürək simvolu */
+  /* Dolu ürək ikonu */
 font-size: 1.2em;
 color: red; /* Dolu ürəyin rəngi qırmızı olsun */
 }
