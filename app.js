@@ -1,213 +1,104 @@
- 
-    let currentIndex = 0;
-    let isDragging = false;
-    let startPos = 0;
-    let currentTranslate = 0;
-    let prevTranslate = 0;
-    let animationID;
-    const wrapper = document.querySelector('.carousel-wrapper');
-    const cardWidth = document.querySelector('.product-card').offsetWidth;
-    const totalCards = document.querySelectorAll('.product-card').length;
+function filterProducts() {
+    const searchInput = document.getElementById("searchInput").value.toLowerCase();
+    const genderFilter = document.getElementById("genderFilter").value;
+    const colorFilter = document.getElementById("colorFilter").value;
+    const sizeFilter = document.getElementById("sizeFilter").value.toLowerCase();
+    const minPriceFilter = document.getElementById("minPriceFilter").value;
+    const maxPriceFilter = document.getElementById("maxPriceFilter").value;
+    const brandFilter = document.getElementById("brandFilter").value;
+    const cards = document.querySelectorAll(".product-cardxl");
 
-    function updateCarousel() {
-        wrapper.style.transform = `translateX(-${currentIndex * (cardWidth + 20)}px)`;
-    }
+    let anyProductsMatch = false; // Yalnız filterə uyğun məhsul varsa true olacaq
 
-    function nextCard() {
-        if (currentIndex < totalCards - 3) { // 3 cards are visible
-            currentIndex++;
-            updateCarousel();
-        }
-    }
+    cards.forEach(card => {
+        const name = card.getAttribute("data-name-filter").toLowerCase();
+        const category = card.getAttribute("data-category-filter").toLowerCase();
+        const gender = card.getAttribute("data-gender-filter");
+        const color = card.getAttribute("data-color-filter");
+        const size = card.getAttribute("data-size-filter").toLowerCase();
+        const price = parseFloat(card.getAttribute("data-price-filter"));
+        const brand = card.getAttribute("data-brand-filter");
 
-    function prevCard() {
-        if (currentIndex > 0) {
-            currentIndex--;
-            updateCarousel();
-        }
-    }
+        let show = true;
 
-    wrapper.addEventListener('mousedown', touchStart);
-    wrapper.addEventListener('mouseup', touchEnd);
-    wrapper.addEventListener('mouseleave', touchEnd);
-    wrapper.addEventListener('mousemove', touchMove);
-    wrapper.addEventListener('touchstart', touchStart);
-    wrapper.addEventListener('touchend', touchEnd);
-    wrapper.addEventListener('touchmove', touchMove);
-
-    function touchStart(event) {
-        isDragging = true;
-        startPos = getPositionX(event);
-        animationID = requestAnimationFrame(animation);
-    }
-
-    function touchEnd() {
-        isDragging = false;
-        cancelAnimationFrame(animationID);
-        const movedBy = currentTranslate - prevTranslate;
-
-        if (movedBy < -100 && currentIndex < totalCards - 3) {
-            currentIndex++;
+        if (searchInput && !(name.includes(searchInput) || category.includes(searchInput))) {
+            show = false;
         }
 
-        if (movedBy > 100 && currentIndex > 0) {
-            currentIndex--;
+        if (genderFilter && gender !== genderFilter) {
+            show = false;
         }
 
-        setPositionByIndex();
-    }
-
-    function touchMove(event) {
-        if (isDragging) {
-            const currentPosition = getPositionX(event);
-            currentTranslate = prevTranslate + currentPosition - startPos;
+        if (colorFilter && color !== colorFilter) {
+            show = false;
         }
-    }
 
-    function getPositionX(event) {
-        return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
-    }
-
-    function animation() {
-        setSliderPosition();
-        if (isDragging) requestAnimationFrame(animation);
-    }
-
-    function setSliderPosition() {
-        wrapper.style.transform = `translateX(${currentTranslate}px)`;
-    }
-
-    function setPositionByIndex() {
-        currentTranslate = currentIndex * -(cardWidth + 20);
-        prevTranslate = currentTranslate;
-        setSliderPosition();
-    }
-document.getElementById('close-icon').addEventListener('click', function() {
-  document.getElementById('top-bar').style.display = 'none';
-});
-
-
-// Corusel
-let Index = 0;
-let startX, currentX, lastX, isDraggings = false, velocity = 0, animationFrame;
-
-function scrollCarousel(direction) {
-    const carousel = document.querySelector('.kataloqCarusel');
-    const items = document.querySelectorAll('.carousel-items');
-    const itemWidth = items[0].offsetWidth + parseInt(getComputedStyle(items[0]).marginRight) * 2; // Including margins
-    const visibleItemsCount = Math.floor(document.querySelector('.kataloq').offsetWidth / itemWidth);
-    const maxIndex = items.length - visibleItemsCount;
-
-    Index += direction;
-
-    if (Index < 0) {
-        Index = 0;
-    } else if (Index > maxIndex) {
-        Index = maxIndex;
-    }
-
-    carousel.style.transition = 'transform 0.5s ease-in-out';
-    carousel.style.transform = `translateX(-${Index * itemWidth}px)`;
-}
-
-function handleTouchStart(e) {
-    startX = e.touches[0].clientX;
-    isDraggings = true;
-    lastX = startX;
-    cancelAnimationFrame(animationFrame);
-    const carousel = document.querySelector('.kataloqCarusel');
-    carousel.style.transition = 'none';
-}
-
-function handleTouchMove(e) {
-    if (!isDraggings) return;
-    currentX = e.touches[0].clientX;
-    const deltaX = currentX - lastX;
-    lastX = currentX;
-    const carousel = document.querySelector('.kataloqCarusel');
-    const transformMatrix = new WebKitCSSMatrix(getComputedStyle(carousel).transform);
-    carousel.style.transform = `translateX(${transformMatrix.m41 + deltaX}px)`;
-    velocity = deltaX;
-}
-
-function handleTouchEnd() {
-    isDraggings = false;
-    inertiaScroll();
-}
-
-function handleMouseDown(e) {
-    startX = e.clientX;
-    isDraggings = true;
-    lastX = startX;
-    cancelAnimationFrame(animationFrame);
-    const carousel = document.querySelector('.kataloqCarusel');
-    carousel.style.transition = 'none';
-}
-
-function handleMouseMove(e) {
-    if (!isDraggings) return;
-    currentX = e.clientX;
-    const deltaX = currentX - lastX;
-    lastX = currentX;
-    const carousel = document.querySelector('.kataloqCarusel');
-    const transformMatrix = new WebKitCSSMatrix(getComputedStyle(carousel).transform);
-    carousel.style.transform = `translateX(${transformMatrix.m41 + deltaX}px)`;
-    velocity = deltaX;
-}
-
-function handleMouseUp() {
-    isDraggings = false;
-    inertiaScroll();
-}
-
-function inertiaScroll() {
-    const carousel = document.querySelector('.kataloqCarusel');
-    let transformMatrix = new WebKitCSSMatrix(getComputedStyle(carousel).transform);
-    let currentX = transformMatrix.m41;
-    const deceleration = 0.95;
-
-    function animate() {
-        velocity *= deceleration;
-        currentX += velocity;
-        carousel.style.transform = `translateX(${currentX}px)`;
-        if (Math.abs(velocity) > 0.5) {
-            animationFrame = requestAnimationFrame(animate);
-        } else {
-            snapToNearest();
+        if (sizeFilter && !size.includes(sizeFilter)) {
+            show = false;
         }
+
+        if (minPriceFilter && price < parseFloat(minPriceFilter)) {
+            show = false;
+        }
+
+        if (maxPriceFilter && price > parseFloat(maxPriceFilter)) {
+            show = false;
+        }
+
+        if (brandFilter && brand !== brandFilter) {
+            show = false;
+        }
+
+        card.style.display = show ? "block" : "none";
+
+        if (show) {
+            anyProductsMatch = true; // Filtrləmə nəticəsi varsa true olur
+        }
+    });
+
+    // Əgər filtrə uyğun heç bir məhsul yoxdursa mesajı göstər
+    if (!anyProductsMatch) {
+        document.getElementById('noProductsMessage').style.display = 'block';
+    } else {
+        document.getElementById('noProductsMessage').style.display = 'none';
     }
-    animate();
+}
+function resetFilters() {
+    document.getElementById("searchInput").value = "";
+    document.getElementById("genderFilter").value = "";
+    document.getElementById("colorFilter").value = "";
+    document.getElementById("sizeFilter").value = "";
+    document.getElementById("minPriceFilter").value = "";
+    document.getElementById("maxPriceFilter").value = "";
+    document.getElementById("brandFilter").value = "";
+    filterProducts();
 }
 
-function snapToNearest() {
-    const carousel = document.querySelector('.kataloqCarusel');
-    const items = document.querySelectorAll('.carousel-items');
-    const itemWidth = items[0].offsetWidth + parseInt(getComputedStyle(items[0]).marginRight) * 2;
-    const transformMatrix = new WebKitCSSMatrix(getComputedStyle(carousel).transform);
-    let currentX = transformMatrix.m41;
-    Index = Math.round(-currentX / itemWidth);
-    const visibleItemsCount = Math.floor(document.querySelector('.kataloq').offsetWidth / itemWidth);
-    const maxIndex = items.length - visibleItemsCount;
+// finish 
 
-    if (Index < 0) {
-        Index = 0;
-    } else if (Index > maxIndex) {
-        Index = maxIndex;
-    }
 
-    carousel.style.transition = 'transform 0.5s ease-in-out';
-    carousel.style.transform = `translateX(-${Index * itemWidth}px)`;
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
 }
 
-const carouselElement = document.getElementById('carousel');
-carouselElement.addEventListener('touchstart', handleTouchStart);
-carouselElement.addEventListener('touchmove', handleTouchMove);
-carouselElement.addEventListener('touchend', handleTouchEnd);
-carouselElement.addEventListener('mousedown', handleMouseDown);
-carouselElement.addEventListener('mousemove', handleMouseMove);
-carouselElement.addEventListener('mouseup', handleMouseUp);
-carouselElement.addEventListener('mouseleave', handleMouseUp);
-// sebet 
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
 function toggleCart() {
     const cartSidebar = document.getElementById('cart-sidebarlar');
     const isOpen = cartSidebar.style.right === '0px';
@@ -404,171 +295,257 @@ function showNotification() {
         notification.classList.remove('show');
     }, 3000);
 }
-// Drop down 
-function toggleDropdown(events) {
-    events.preventDefault();
-    const dropdown = events.target.closest('a').nextElementSibling;
-    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+function applyFilterAndClose() {
+    filterProducts();
+    w3_close();
 }
-document.addEventListener('click', function(events) {
-    const isClickInside = document.querySelector('.user-actions').contains(events.target);
-    if (!isClickInside) {
-        document.querySelector('.dropdown-menu').style.display = 'none';
-    }
-});
-             // Sample product data with category, price, size, gender, color, brand, and shoeSize
-             const products = [
-                { id: 1, name: 'Məhsul 1', image: 'sekil 10.jpg', category: 'Elektronika', price: 50, size: 'M', gender: 'men', color: 'red', brand: 'Brand 1', shoeSize: '42' },
-                { id: 2, name: 'Məhsul 2', image: 'sekil 10.jpg', category: 'Geyim', price: 75, size: 'L', gender: 'women', color: 'blue', brand: 'Brand 2', shoeSize: '38' },
-                { id: 3, name: 'Məhsul 3', image: 'sekil 10.jpg', category: 'Kitab', price: 30, size: 'XL', gender: 'men', color: 'green', brand: 'Brand 1', shoeSize: '40' },
-                { id: 4, name: 'Məhsul 4', image: 'sekil 10.jpg', category: 'Elektronika', price: 50, size: 'M', gender: 'men', color: 'black', brand: 'Brand 2', shoeSize: '41' },
-                { id: 5, name: 'Məhsul 5', image: 'sekil 10.jpg', category: 'Geyim', price: 75, size: 'L', gender: 'women', color: 'red', brand: 'Brand 1', shoeSize: '39' },
-                { id: 6, name: 'Məhsul 6', image: 'sekil 10.jpg', category: 'Kitab', price: 30, size: 'XL', gender: 'men', color: 'blue', brand: 'Brand 2', shoeSize: '37' },
-                { id: 7, name: 'Məhsul 7', image: 'sekil 10.jpg', category: 'Elektronika', price: 50, size: 'M', gender: 'men', color: 'green', brand: 'Brand 1', shoeSize: '42' },
-                { id: 8, name: 'Məhsul 8', image: 'sekil 10.jpg', category: 'Geyim', price: 75, size: 'L', gender: 'women', color: 'black', brand: 'Brand 2', shoeSize: '38' },
-                { id: 9, name: 'Məhsul 9', image: 'sekil 10.jpg', category: 'Kitab', price: 30, size: 'XL', gender: 'men', color: 'red', brand: 'Brand 1', shoeSize: '40' },
-                { id: 10, name: 'Məhsul 10', image: 'sekil 10.jpg', category: 'Elektronika', price: 50, size: 'M', gender: 'men', color: 'blue', brand: 'Brand 2', shoeSize: '41' },
-                { id: 11, name: 'Məhsul 11', image: 'sekil 10.jpg', category: 'Geyim', price: 75, size: 'L', gender: 'women', color: 'green', brand: 'Brand 1', shoeSize: '39' },
-                { id: 12, name: 'Məhsul 12', image: 'sekil 10.jpg', category: 'Kitab', price: 30, size: 'XL', gender: 'men', color: 'black', brand: 'Brand 2', shoeSize: '37' },
-                { id: 13, name: 'Məhsul 12', image: 'sekil 10.jpg', category: 'Kitab', price: 30, size: 'XL', gender: 'men', color: 'black', brand: 'Brand 2', shoeSize: '37' },
-                { id: 14, name: 'Məhsul 12', image: 'sekil 10.jpg', category: 'Kitab', price: 30, size: 'XL', gender: 'men', color: 'black', brand: 'Brand 2', shoeSize: '37' },
-                { id: 15, name: 'Məhsul 12', image: 'sekil 10.jpg', category: 'Kitab', price: 30, size: 'XL', gender: 'men', color: 'black', brand: 'Brand 2', shoeSize: '37' }
-                // Əlavə məhsullar
-            ];
+
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+} 
+function applyFilterAndClose() {
+    filterProducts();
+    animateClose();
+}
+
+function w3_open() {
+    const sidebar = document.getElementById("mySidebar");
+    sidebar.style.display = "block";
+    sidebar.style.transform = "translateX(0)";
+    sidebar.style.opacity = "1";
+}
+
+function w3_close() {
+    animateClose();
+}
+
+function animateClose() {
+    const sidebar = document.getElementById("mySidebar");
+    let opacity = 1;
+    let transform = 0;
     
-            // Məhsulları filterləmək üçün funksiya
-            function filterProducts(products) {
-                const searchInput = document.getElementById('searchInput').value.toLowerCase().trim();
-                const genderFilter = document.getElementById('genderFilter').value.toLowerCase().trim();
-                const colorFilter = document.getElementById('colorFilter').value.toLowerCase().trim();
-                const sizeFilter = document.getElementById('sizeFilter').value.trim();
-                const minPriceFilter = document.getElementById('minPriceFilter').value.trim();
-                const maxPriceFilter = document.getElementById('maxPriceFilter').value.trim();
-                const brandFilter = document.getElementById('brandFilter').value.toLowerCase().trim();
-                const shoeSizeFilter = document.getElementById('shoeSizeFilter').value.trim();
-    
-                const filteredProducts = products.filter(product => {
-                    const productName = product.name.toLowerCase();
-                    const productCategory = product.category.toLowerCase();
-                    const isSearchMatch = productName.includes(searchInput) || productCategory.includes(searchInput);
-                    const isGenderMatch = genderFilter ? product.gender === genderFilter : true;
-                    const isColorMatch = colorFilter ? product.color === colorFilter : true;
-                    const isSizeMatch = sizeFilter ? product.size.toLowerCase() === sizeFilter.toLowerCase() : true;
-                    const isMinPriceMatch = minPriceFilter ? product.price >= parseInt(minPriceFilter) : true;
-                    const isMaxPriceMatch = maxPriceFilter ? product.price <= parseInt(maxPriceFilter) : true;
-                    const isBrandMatch = brandFilter ? product.brand.toLowerCase().includes(brandFilter) : true;
-                    const isShoeSizeMatch = shoeSizeFilter ? product.shoeSize === shoeSizeFilter : true;
-    
-                    return isSearchMatch && isGenderMatch && isColorMatch && isSizeMatch && isMinPriceMatch && isMaxPriceMatch && isBrandMatch && isShoeSizeMatch;
-                });
-    
-                return filteredProducts;
-            }
-    
-            // Məhsulları göstərmək üçün funksiya
-            function displayProducts() {
-                const container = document.getElementById('productContainer');
-                container.innerHTML = '';
-    
-                const filteredProducts = filterProducts(products);
+    const animate = () => {
+        if (opacity > 0) {
+            opacity -= 0.1;
+            transform -= 10;
+            sidebar.style.opacity = opacity;
+            sidebar.style.transform = `translateX(${transform}px)`;
+            requestAnimationFrame(animate);
+        } else {
+            sidebar.style.display = "none";
+            sidebar.style.opacity = "1";
+            sidebar.style.transform = "translateX(0)";
+        }
+    };
+    animate();
+}
+function filterProductsx() {
+                        const minPrice = parseFloat(document.getElementById("minPrice").value) || 0;
+                        const maxPrice = parseFloat(document.getElementById("maxPrice").value) || Infinity;
+                        const color = document.getElementById("color").value;
+                        const searchTerm = document.getElementById("searchTerm").value.toLowerCase();
+                        
+                        const cards = document.querySelectorAll(".product-cardl");
+                        let anyProductsMatch = false;
                 
-                filteredProducts.forEach(product => {
-                    const card = createProductCard(product);
-                    container.appendChild(card);
-                });
-            }
-    
-            // Məhsul kartı yaratmaq üçün funksiya
-            function createProductCard(product) {
-                const card = document.createElement('div');
-                card.classList.add('product-card');
-    
-                const imgContainer = document.createElement('div');
-                imgContainer.classList.add('image-container');
-                card.appendChild(imgContainer);
-    
-                const img = document.createElement('img');
-                img.src = `${product.image}`;
-                img.alt = product.name;
-                imgContainer.appendChild(img);
-    
-                const heartIcon = document.createElement('span');
-                heartIcon.classList.add('heart-icon');
-                heartIcon.setAttribute('onclick', `toggleFavorite(${product.id})`);
-                imgContainer.appendChild(heartIcon);
-    
-                const title = document.createElement('h3');
-                title.textContent = product.name;
-                card.appendChild(title);
-    
-                const category = document.createElement('p');
-                category.textContent = `Kateqoriya: ${product.category}`;
-                card.appendChild(category);
-    
-                const priceWrapper = document.createElement('div');
-                priceWrapper.classList.add('product-pricesx');
-    
-                const currentPrice = document.createElement('span');
-                currentPrice.classList.add('current-price');
-                currentPrice.textContent = `${product.price} AZN`;
-                priceWrapper.appendChild(currentPrice);
-    
-                const oldPrice = document.createElement('span');
-                oldPrice.classList.add('old-price');
-                oldPrice.textContent = `70 AZN`; // Sabit olaraq göstərmək istəsəniz, JavaScriptdə dəyişdirə bilərsiniz
-                priceWrapper.appendChild(oldPrice);
-    
-                card.appendChild(priceWrapper);
-    
-                const rating = document.createElement('div');
-                rating.classList.add('product-rating');
-                for (let i = 0; i < 5; i++) {
-                    const star = document.createElement('span');                     
-                    star.classList.add('star');
-                    if (i < 4) {
-                        star.textContent = '★';
-                    } else {
-                        star.textContent = '☆';
+                        cards.forEach(card => {
+                            const price = parseFloat(card.querySelector(".product-price").textContent.replace('$', ''));
+                            const title = card.querySelector(".product-title").textContent.toLowerCase();
+                            const cardColor = card.querySelector(".product-image").style.backgroundColor;
+                
+                            if ((price >= minPrice && price <= maxPrice) &&
+                                (searchTerm === "" || title.includes(searchTerm)) &&
+                                (color === "" || cardColor === color)) {
+                                card.style.display = "block";
+                                anyProductsMatch = true;
+                            } else {
+                                card.style.display = "none";
+                            }
+                        });
+                
+                        if (!anyProductsMatch) {
+                            document.getElementById('noProductsMessage').style.display = 'block';
+                        } else {
+                            document.getElementById('noProductsMessage').style.display = 'none';
+                        }
                     }
-                    rating.appendChild(star);
+                
+                    document.querySelectorAll('.nav-itemkat').forEach(item => {
+                        item.addEventListener('click', event => {
+                            const category = item.getAttribute('data-category');
+                            filterByCategory(category);
+                        });
+                    });
+                
+                    function filterByCategory(category) {
+                        const cards = document.querySelectorAll(".product-cardl");
+                
+                        cards.forEach(card => {
+                            const cardCategory = card.getAttribute("data-category").toLowerCase();
+                            if (category === "all" || cardCategory === category) {
+                                card.style.display = "block";
+                            } else {
+                                card.style.display = "none";
+                            }
+                        });
+                
+                        const anyProductsMatch = Array.from(cards).some(card => card.style.display === "block");
+            
                 }
-                card.appendChild(rating);
-    
-                const addToCart = document.createElement('div');
-                addToCart.classList.add('add-to-cart');
-                addToCart.innerHTML = `Səbətə Əlavə Et <span class="cart-icon">➔</span>`;
-                card.appendChild(addToCart);
-    
-                return card;
-            }
-    
-            // Məhsulları axtarmaq üçün funksiya
-            function searchProducts() {
-                displayProducts();
-            }
-    
-            // Başlanğıcda məhsulları göstər
-            displayProducts();
-    // Get the Sidebar
-    var mySidebar = document.getElementById("mySidebar");
-    
-    // Get the DIV with overlay effect
-    var overlayBg = document.getElementById("myOverlay");
-    
-    // Toggle between showing and hiding the sidebar, and add overlay effect
-    function w3_open() {
-      if (mySidebar.style.display === 'block') {
-        mySidebar.style.display = 'none';
-        overlayBg.style.display = "none";
-      } else {
-        mySidebar.style.display = 'block';
-        overlayBg.style.display = "block";
-      }
+                // lll
+                document.addEventListener('DOMContentLoaded', function() {
+        const navbar = document.querySelector('.navbarkat');
+        const navItems = document.querySelectorAll('.nav-itemkat a');
+        const scrollLeftBtn = document.querySelector('.scroll-btn.left');
+        const scrollRightBtn = document.querySelector('.scroll-btn.right');
+
+        navItems.forEach(item => {
+            item.addEventListener('click', function() {
+                // Remove the active class from all items
+                navItems.forEach(nav => nav.classList.remove('active'));
+                // Add the active class to the clicked item
+                this.classList.add('active');
+            });
+        });
+        
+        // Function to show/hide scroll buttons based on scroll position
+        function checkScrollButtons() {
+            const scrollLeft = navbar.scrollLeft;
+            const maxScrollLeft = navbar.scrollWidth - navbar.clientWidth;
+            
+            scrollLeftBtn.style.display = scrollLeft > 0 ? 'flex' : 'none';
+            scrollRightBtn.style.display = scrollLeft < maxScrollLeft ? 'flex' : 'none';
+        }
+        
+        // Initial check when the page loads
+        checkScrollButtons();
+        
+        // Scroll buttons event listeners for desktop
+        scrollLeftBtn.addEventListener('click', function() {
+            navbar.scrollBy({
+                left: -100,
+                behavior: 'smooth'
+            });
+            // Show the right scroll button after scrolling left
+            scrollRightBtn.style.display = 'flex';
+        });
+
+        scrollRightBtn.addEventListener('click', function() {
+            navbar.scrollBy({
+                left: 100,
+                behavior: 'smooth'
+            });
+            // Show the left scroll button after scrolling right
+            scrollLeftBtn.style.display = 'flex';
+        });
+
+        // Swipe left/right functionality for mobile
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        navbar.addEventListener('touchstart', (e) => {
+            isDown = true;
+            startX = e.touches[0].pageX - navbar.offsetLeft;
+            scrollLeft = navbar.scrollLeft;
+        });
+
+        navbar.addEventListener('touchend', () => {
+            isDown = false;
+        });
+
+        navbar.addEventListener('touchmove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.touches[0].pageX - navbar.offsetLeft;
+            const walk = (x - startX) * 3; // Adjust scrolling speed here
+            navbar.scrollLeft = scrollLeft - walk;
+        });
+
+        // Show/hide scroll buttons based on scroll position
+        navbar.addEventListener('scroll', function() {
+            checkScrollButtons();
+        });
+
+        // Initially set the first item as active
+        document.querySelector('.default-active').classList.add('active');
+    });
+        // Yuxarı çıx 
+        // script.js
+// Düyməni əldə edin
+let backToTopBtn = document.getElementById("backToTopBtn");
+
+// İstifadəçi səhifədə 20px-dən çox aşağı sürüşdükdə düyməni göstərmək üçün funksiyanı işə salın
+window.onscroll = function() {
+    scrollFunction();
+};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        backToTopBtn.classList.add("show");
+        backToTopBtn.classList.remove("hide");
+    } else {
+        backToTopBtn.classList.add("hide");
+        backToTopBtn.classList.remove("show");
     }
-    
-    // Close the sidebar with the close button
-    function w3_close() {
-      mySidebar.style.display = "none";
-      overlayBg.style.display = "none";
+}
+
+// İstifadəçi düyməni kliklədikdə səhifənin yuxarısına qayıdın
+backToTopBtn.onclick = function() {
+    document.body.scrollTop = 0; // Safari üçün
+    document.documentElement.scrollTop = 0; // Chrome, Firefox, IE və Opera üçün
+};
+// filter acil 
+function toggleFilter(filterId) {
+            var filterOptions = document.getElementById(filterId);
+            filterOptions.classList.toggle('active');
+        }
+
+        // language 
+
+        function toggleDropdown() {
+    const dropdownMenu = document.getElementById('dropdown-menu');
+    if (dropdownMenu.style.display === 'block') {
+        dropdownMenu.style.display = 'none';
+    } else {
+        dropdownMenu.style.display = 'block';
     }
-    
+}
+
+window.onclick = function(event) {
+    if (!event.target.matches('.language-selector') && !event.target.matches('.language-selector *')) {
+        document.getElementById('dropdown-menu').style.display = 'none';
+    }
+}
+// navbarDesing 
+function showPage(pageId) {
+    const contents = document.querySelectorAll('.contentDesing');
+    const navItems = document.querySelectorAll('.nav-itemDesing');
+    contents.forEach(content => {
+        content.classList.remove('activeDesing');
+    });
+    navItems.forEach(navItem => {
+        navItem.classList.remove('activeNav');
+    });
+    document.getElementById(pageId).classList.add('activeDesing');
+    document.querySelector(`[onclick="showPage('${pageId}')"]`).classList.add('activeNav');
+}
