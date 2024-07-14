@@ -202,7 +202,7 @@ font-size: 1.2em;
         .ww{
         z-index:6;
         width:250px;
-        height: 76%;
+        height: 73%;
         bottom: 0;
     }
     .top-bar {
@@ -219,8 +219,52 @@ font-size: 1.2em;
         left: 0;
         right: 0;
       }
+      .navbar-containerkat {
+        display: flex;
+        align-items: center;
+        background-color: white;
+        padding: 10px;
+        position: relative;
+        margin-top: 90px;
+        position: fixed;
+        width: 100%;
+        z-index: 4;
+    }
     /* Responsive adjustments */
     @media (max-width: 768px) {
+        .fa-solid{
+            margin-top: 15px;
+            margin-left: 10px;
+        }
+        .sıfırla{
+            color: red;
+            text-decoration: underline;
+             cursor: pointer;
+            margin-top: -8px;
+        }
+        .w3-containers{
+            position: fixed;
+            background-color: #f3f3f3;
+            top: 0;
+            width: 100%;
+            height: 40px;
+    }
+    .w3-containerH5{
+        position: absolute;
+        top: 3px;
+        margin-left: 170px;
+    }
+        .navbar-containerkat {
+        display: flex;
+        align-items: center;
+        background-color: white;
+        padding: 10px;
+        position: relative;
+        margin-top: 190px;
+        
+        width: 100%;
+        z-index: 1;
+    }
         .sıfırla{
             color: red;
             text-decoration: underline;
@@ -245,7 +289,7 @@ font-size: 1.2em;
             position: absolute;
         }
         .carousel-containerxl{
-            margin-left: -10px;
+            margin-left: -15px;
             margin-top: 270px;
         }
         .product-cardxl{
@@ -276,22 +320,37 @@ flex-shrink: 0;
         }
     }
     @media (max-width: 320px) {
+        .fa-solid{
+            margin-top: 15px;
+            margin-left: 10px;
+        }
+        .navbar-containerkat {
+        display: flex;
+        align-items: center;
+        background-color: white;
+        padding: 10px;
+        position: relative;
+        margin-top: 190px;
+        
+        width: 100%;
+        z-index: 1;
+    }
         .sıfırla{
             color: red;
             text-decoration: underline;
              cursor: pointer;
-            margin-top: -3px;
+            margin-top: -8px;
         }
         .w3-containers{
             position: fixed;
-            background-color: #ddd;
+            background-color: #f3f3f3;
             top: 0;
             width: 100%;
             height: 40px;
     }
     .w3-containerH5{
         position: absolute;
-        top: 7px;
+        top: 3px;
         margin-left: 120px;
     }
         .filterDesing{
@@ -308,7 +367,7 @@ flex-shrink: 0;
     }
         .carousel-containerxl{
             margin-left: -30px;
-            margin-top: 270px;
+            margin-top: 20px;
         }
         .logo h1 {
             position: absolute;
@@ -334,14 +393,14 @@ flex-shrink: 0;
     }
     /* Sidebar animation */
     
-
+/* 
 
         .navbarkat {
             background-color: white;
             flex-grow: 1;
-            overflow: hidden; /* Hide overflow to prevent scrollbars */
-            white-space: nowrap; /* Ensure all items stay in one line */
-            display: flex; /* Allow flexbox properties for centering */
+            overflow: hidden; 
+            white-space: nowrap; 
+            display: flex; 
             
         }
 
@@ -378,7 +437,7 @@ flex-shrink: 0;
             color: #fff;
         }
 
-        /* Scroll buttons for desktop */
+        
         @media (min-width: 373px) {
 
             .scroll-btn {
@@ -395,7 +454,7 @@ flex-shrink: 0;
                 position: absolute;
                 top: 50%;
                 transform: translateY(-50%);
-                z-index: 1; /* Ensure buttons are above content */
+                z-index: 1; 
                 
             }
 
@@ -417,7 +476,7 @@ flex-shrink: 0;
                 
             }
 
-            /* Hide scroll buttons on mobile */
+            
             .scroll-btn.mobile {
                 display: none;
             }
@@ -425,9 +484,9 @@ flex-shrink: 0;
         @media (max-width: 767px) {
     .scroll-btn.left,
     .scroll-btn.right {
-        display: none !important; /* Hər iki scroll düyməsini də gizlədik */
+        display: none !important;
     }
-}
+} */
 
 
     /* Reset styles */
@@ -555,17 +614,102 @@ flex-shrink: 0;
       left: 5px;
       top: 210px;
     }
-    
+    /* kotoloq  */
+
+
+    .nav-listkat {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        transition: transform 0.3s ease-in-out;
+        margin-left: 1px;
+    }
+
+    .navbarkat {
+        background-color: white;
+        flex-grow: 1;
+        overflow: hidden; /* Hide overflow to prevent scrollbars */
+        white-space: nowrap; /* Ensure all items stay in one line */
+        display: flex; /* Allow flexbox properties for centering */
+    }
+
+    .nav-itemkat {
+        margin-right: 10px;
+        flex-shrink: 0;
+    }
+
+    .nav-itemkat a {
+        text-decoration: none;
+        padding: 10px 15px;
+        border-radius: 25px;
+        background-color: #e6e6e6;
+        color: #000;
+        display: flex;
+        align-items: center;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .nav-itemkat a:hover {
+        background-color: orangered;
+        color: #fff;
+    }
+
+    .nav-itemkat a.active {
+        background-color: orangered;
+        color: #fff;
+    }
+
+    /* Scroll buttons for desktop */
+    @media (min-width: 373px) {
+
+        .scroll-btn {
+            display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #fff;
+                border: 1px solid #ccc;
+                border-radius: 50%;
+                width: 30px;
+                height: 30px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 1;
+        }
+
+        .scroll-btn.left {
+            left: 10px;
+        }
+
+        .scroll-btn.right {
+            right: 10px;
+        }
+
+        .scroll-btn:hover,
+        .scroll-btn:active {
+            background-color: orangered;
+            color: #fff;
+        }
+
+        /* Hide scroll buttons on mobile */
+        .scroll-btn.mobile {
+            display: none;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .scroll-btn.left,
+        .scroll-btn.right {
+            display: none !important; /* Hər iki scroll düyməsini də gizlədik */
+        }
+    }
 </style>
 
 </head>
 <body class="w3-light-grey">
-
-<!-- Top container -->
-
-
-
-
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar ww w3-collapse w3-white w3-animate-left" id="mySidebar"><br>
 
@@ -688,8 +832,8 @@ flex-shrink: 0;
             <h1>My-Shop</h1>
         </div>
         <div class="search-bar search-barx">
-            <input type="text" placeholder="Search..." id="searchInput">
-             <button class="buton"><span class="material-icons " onclick="filterProducts()">search</span></button>
+            <input type="text" placeholder="Search..."  id="searchInput">
+             <button class="buton"  ><span class="material-icons " onclick="filterProducts()">search</span></button>
         </div>
         <div class="user-actions">
           <div class="cart-iconlar cartResponsive" >
@@ -721,7 +865,7 @@ flex-shrink: 0;
     <button class="scroll-btn left mazqi scroll-btn-desktop">&lt;</button>
     <nav class="navbarkat">
         <ul class="nav-listkat">
-            <li class="nav-itemkat" data-category="all"><a href="#"><i style="margin-right: 5px;" class='bx bx-home'></i> Hamısı</a></li>
+            <li class="nav-itemkat " data-category="all"><a href="#" class="default-active"><i style="margin-right: 5px;" class='bx bx-home'></i> Hamısı</a></li>
             <li class="nav-itemkat" data-category="electronics"><a href="#"><i style="margin-right: 5px;"  class='bx bx-laptop' ></i> Elektronika və məişət texnikası</a></li>
             <li class="nav-itemkat" data-category="shop"><a href="#"><i style="margin-right: 5px;" class='bx bx-store' ></i> Dükan</a></li>
             <li class="nav-itemkat" data-category="clothing"><a href="#"><i style="margin-right: 5px;" class='bx bxs-t-shirt' ></i> Geyim və ayaqqabı</a></li>
@@ -5155,69 +5299,82 @@ function filterProductsx() {
                 }
                 // lll
                 document.addEventListener('DOMContentLoaded', function() {
-    const navbar = document.querySelector('.navbarkat');
-    const scrollLeftBtn = document.querySelector('.scroll-btn.left');
-    const scrollRightBtn = document.querySelector('.scroll-btn.right');
-    
-    // Function to show/hide scroll buttons based on scroll position
-    function checkScrollButtons() {
-        const scrollLeft = navbar.scrollLeft;
-        const maxScrollLeft = navbar.scrollWidth - navbar.clientWidth;
+        const navbar = document.querySelector('.navbarkat');
+        const navItems = document.querySelectorAll('.nav-itemkat a');
+        const scrollLeftBtn = document.querySelector('.scroll-btn.left');
+        const scrollRightBtn = document.querySelector('.scroll-btn.right');
+
+        navItems.forEach(item => {
+            item.addEventListener('click', function() {
+                // Remove the active class from all items
+                navItems.forEach(nav => nav.classList.remove('active'));
+                // Add the active class to the clicked item
+                this.classList.add('active');
+            });
+        });
         
-        scrollLeftBtn.style.display = scrollLeft > 0 ? 'flex' : 'none';
-        scrollRightBtn.style.display = scrollLeft < maxScrollLeft ? 'flex' : 'none';
-    }
-    
-    // Initial check when the page loads
-    checkScrollButtons();
-    
-    // Scroll buttons event listeners for desktop
-    scrollLeftBtn.addEventListener('click', function() {
-        navbar.scrollBy({
-            left: -100,
-            behavior: 'smooth'
-        });
-        // Show the right scroll button after scrolling left
-        scrollRightBtn.style.display = 'flex';
-    });
-
-    scrollRightBtn.addEventListener('click', function() {
-        navbar.scrollBy({
-            left: 100,
-            behavior: 'smooth'
-        });
-        // Show the left scroll button after scrolling right
-        scrollLeftBtn.style.display = 'flex';
-    });
-
-    // Swipe left/right functionality for mobile
-    let isDown = false;
-    let startX;
-    let scrollLeft;
-
-    navbar.addEventListener('touchstart', (e) => {
-        isDown = true;
-        startX = e.touches[0].pageX - navbar.offsetLeft;
-        scrollLeft = navbar.scrollLeft;
-    });
-
-    navbar.addEventListener('touchend', () => {
-        isDown = false;
-    });
-
-    navbar.addEventListener('touchmove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.touches[0].pageX - navbar.offsetLeft;
-        const walk = (x - startX) * 3; // Adjust scrolling speed here
-        navbar.scrollLeft = scrollLeft - walk;
-    });
-
-    // Show/hide scroll buttons based on scroll position
-    navbar.addEventListener('scroll', function() {
+        // Function to show/hide scroll buttons based on scroll position
+        function checkScrollButtons() {
+            const scrollLeft = navbar.scrollLeft;
+            const maxScrollLeft = navbar.scrollWidth - navbar.clientWidth;
+            
+            scrollLeftBtn.style.display = scrollLeft > 0 ? 'flex' : 'none';
+            scrollRightBtn.style.display = scrollLeft < maxScrollLeft ? 'flex' : 'none';
+        }
+        
+        // Initial check when the page loads
         checkScrollButtons();
+        
+        // Scroll buttons event listeners for desktop
+        scrollLeftBtn.addEventListener('click', function() {
+            navbar.scrollBy({
+                left: -100,
+                behavior: 'smooth'
+            });
+            // Show the right scroll button after scrolling left
+            scrollRightBtn.style.display = 'flex';
+        });
+
+        scrollRightBtn.addEventListener('click', function() {
+            navbar.scrollBy({
+                left: 100,
+                behavior: 'smooth'
+            });
+            // Show the left scroll button after scrolling right
+            scrollLeftBtn.style.display = 'flex';
+        });
+
+        // Swipe left/right functionality for mobile
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        navbar.addEventListener('touchstart', (e) => {
+            isDown = true;
+            startX = e.touches[0].pageX - navbar.offsetLeft;
+            scrollLeft = navbar.scrollLeft;
+        });
+
+        navbar.addEventListener('touchend', () => {
+            isDown = false;
+        });
+
+        navbar.addEventListener('touchmove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.touches[0].pageX - navbar.offsetLeft;
+            const walk = (x - startX) * 3; // Adjust scrolling speed here
+            navbar.scrollLeft = scrollLeft - walk;
+        });
+
+        // Show/hide scroll buttons based on scroll position
+        navbar.addEventListener('scroll', function() {
+            checkScrollButtons();
+        });
+
+        // Initially set the first item as active
+        document.querySelector('.default-active').classList.add('active');
     });
-});
         // Yuxarı çıx 
         // script.js
 // Düyməni əldə edin
@@ -5265,6 +5422,7 @@ window.onclick = function(event) {
         document.getElementById('dropdown-menu').style.display = 'none';
     }
 }
+
 </script>
 
 </body>
