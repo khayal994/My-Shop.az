@@ -1088,6 +1088,175 @@
           font-size: 20px; /* İkonların daha uyğun görünməsi üçün */
       }
     }
+    @media (mixn-width: 320px) {
+      .enYeniAnimated{
+        top: 30px;
+        margin-left: 20px;
+      }
+      .notification{
+        width: 80%;
+      }
+      .favorites .icon{
+        font-size: 1.2em;
+
+      }
+         .cartResponsive{
+          position: absolute;
+          bottom: 65px;
+         }
+      .piconResponsive{
+        position: absolute;
+        top: -15px;
+        right: 80px;
+      }
+      .favoritesResponsive{
+        position: absolute;
+        bottom: -35px;
+        right: 50px;
+        font-size: 2em;
+      }
+      .sebeticonResponsive{
+        margin-right: 40px;
+        margin-top: 11px;
+      }
+      .heart-icon{
+        color: black; 
+        background-color: rgb(255, 255, 255); 
+        border-radius: 50%; 
+        width: 20%; 
+        box-shadow: -1px 1px 7px 3px rgba(0, 0, 0, 0.176);
+      }
+      .img{
+        width: 162px;
+      }
+      .pb{
+        text-align: center;
+      }
+      .widget-title{
+        text-align: center;
+      }
+      .photo{
+        width: 250px;
+        background-position: center;
+        background-size: cover;
+        position: absolute;
+        bottom: 30px;
+        left: 65px;
+      }
+      .carousel-container{
+        max-width: 350px;
+      }
+    
+      .h2{
+        font-size: 20px;
+        margin-left: 10px;
+        
+      }
+     
+      .product-item{
+        width: 162px;
+      }
+      .product-item figure img{
+        height: 80px;
+        width: 80px;
+        right: 10px;
+      }
+      .product-prices{
+        
+        position: absolute;
+        bottom: 130px;
+        font-size: 13px;
+        margin-left: 10px;
+      }
+      .xproduct{
+        position: absolute;
+        top: 215px;
+      }
+      .old-price{
+        font-size: 10px;
+      }
+      .product-item h3{
+        font-size: 18px;
+      }
+      .animated{
+        color: black;
+        font-size: 8px;
+        position: absolute;
+        bottom: 85px;
+        left: 10px;
+      }
+      .add-to-cart{
+        font-size: 10px;
+        text-align: center;
+      }
+      .product-description{
+        font-size: 12px;
+        margin-top: 30px;
+        margin-left: 10px;
+      }
+      .ara{
+        margin-left: -3px;
+      }
+      .tab-image{
+        width: 100%;
+      }
+      .deyer{
+        font-size: 10px;
+      }
+      .product-rating{
+        font-size: 15px;
+        margin-left: 10px;
+        margin-top: 15px;
+      }
+      .header-main {
+          flex-direction: column;
+          align-items: flex-start;
+          
+      }
+      .search-bar {
+          width: 77%;
+          order: 2;
+          margin-top: 10px;
+          left: 10px;
+          top: 100px;
+      }
+      .row{
+        margin-bottom: -50px;
+      }
+      .navbar-toggler{
+        position: absolute;
+        left: 130px;
+        top: -75px;
+      }
+      .logo {
+          width: 100%;
+          order: 2;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          
+         
+      }
+      .logo h1 {
+          margin: 0;
+        
+      }
+  
+      .user-actions {
+          order: 3;
+          display: flex;
+          justify-content: flex-end;
+          width: 100%;
+          position: absolute;
+          right: 20px;
+          
+      }
+      .user-actions a {
+          margin-left: 10px;
+          margin-top: 10px;
+          font-size: 20px; /* İkonların daha uyğun görünməsi üçün */
+      }
+    }
   
     body {
         --bs-link-color: #333;
