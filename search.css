@@ -293,6 +293,10 @@
             }
         }
         @media (max-width: 320px) {
+            .favorites .count {
+                bottom: 70px;
+                right: -50px;
+            }
             .fa-solid{
                 margin-top: 15px;
                 margin-left: 10px;
