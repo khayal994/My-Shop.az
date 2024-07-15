@@ -549,3 +549,19 @@ function showPage(pageId) {
     document.getElementById(pageId).classList.add('activeDesing');
     document.querySelector(`[onclick="showPage('${pageId}')"]`).classList.add('activeNav');
 }
+
+        // WhatsApp düyməsini yaratmaq üçün JavaScript kodu
+        document.addEventListener("DOMContentLoaded", function() {
+            var whatsappButton = document.createElement("a");
+            whatsappButton.href = "https://wa.me/+9940552163114";
+            whatsappButton.target = "_blank";
+            whatsappButton.rel = "noopener noreferrer";
+            whatsappButton.classList.add("whatsapp-button");
+
+            var whatsappIcon = document.createElement("img");
+            whatsappIcon.src = "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg";
+            whatsappIcon.alt = "WhatsApp";
+
+            whatsappButton.appendChild(whatsappIcon);
+            document.getElementById("whatsapp-container").appendChild(whatsappButton);
+        });

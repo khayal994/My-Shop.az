@@ -1577,3 +1577,29 @@ font-size: 1.2em;
     .contentDesing.activeDesing {
         display: block;
     }
+/* whatsapp  */
+.whatsapp-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 80px; /* Düyməni 80px yuxarı qaldırır */
+    right: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.whatsapp-button img {
+    width: 35px;
+    height: 35px;
+}
+
+.whatsapp-button:hover {
+    background-color: #128C7E;
+}

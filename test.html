@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Düyməsi</title>
+    <style>
+        .whatsapp-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            position: fixed;
+            bottom: 80px; /* Düyməni 80px yuxarı qaldırır */
+            right: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .whatsapp-button img {
+            width: 35px;
+            height: 35px;
+        }
+
+        .whatsapp-button:hover {
+            background-color: #128C7E;
+        }
+    </style>
+</head>
+<body>
+    <div id="whatsapp-container"></div>
+
+    <script>
+        // WhatsApp düyməsini yaratmaq üçün JavaScript kodu
+        document.addEventListener("DOMContentLoaded", function() {
+            var whatsappButton = document.createElement("a");
+            whatsappButton.href = "https://wa.me/+9940552163114";
+            whatsappButton.target = "_blank";
+            whatsappButton.rel = "noopener noreferrer";
+            whatsappButton.classList.add("whatsapp-button");
+
+            var whatsappIcon = document.createElement("img");
+            whatsappIcon.src = "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg";
+            whatsappIcon.alt = "WhatsApp";
+
+            whatsappButton.appendChild(whatsappIcon);
+            document.getElementById("whatsapp-container").appendChild(whatsappButton);
+        });
+    </script>
+</body>
+</html>
