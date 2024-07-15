@@ -4247,8 +4247,69 @@
 </div>
 
 <div id="menu" class="contentDesing">
-    <h1>Menü</h1>
-    <p>This is the menu page.</p>
+    <div class="containerxls body">
+        <h1 style="color: #000;">Axtar</h1>
+        <div class="search-barxls">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" color="#606060">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 10-14 0 7 7 0 0014 0z" />
+            </svg>
+            <input type="text" id="filterInput" placeholder="Menu Axtar..." oninput="filterCards()">
+        </div>
+        <div class="sectionxls">
+            <h2 style="color: #000;">Discover</h2>
+            <div class="cardxls" data-filter="Trending Repositories" onclick="toggleCard(this)">
+                <div class="cardxls-header">
+                    <img src="https://via.placeholder.com/40" alt="Trending Repositories">
+                    <p>Trending</p>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" color="#888">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                </div>
+                <div class="cardxls-content">
+                    <p>This section can be used to write additional information.</p>
+                </div>
+            </div>
+            <div class="cardxls" data-filter="Awesome Lists" onclick="toggleCard(this)">
+                <div class="cardxls-header">
+                    <img src="https://via.placeholder.com/40" alt="Awesome Lists">
+                    <p>Awesome Lists</p>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" color="#888">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                </div>
+                <div class="cardxls-content">
+                    <p>This section can be used to write additional information.</p>
+                    <div class="additional-info">
+                        <p>Additional content goes here...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="sectionxls">
+            <h3 style="color: #555; ">Sosial Media</h3>
+            <div class="cardxls" data-filter="Trending Repositories" onclick="toggleCard(this)">
+                <div class="cardxls-header">
+                    <img src="inistaqram.jpg" alt="Trending Repositories">
+                    <p>İnistagram'ı aç</p>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" color="#888" style="transform: rotate(360deg);">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                </div>
+            </div>
+           <a href="https://www.youtube.com/" style="text-decoration: none; color: white;"> <div class="cardxls" data-filter="Awesome Lists" onclick="toggleCard(this)">
+                <div class="cardxls-header">
+                    <img src="facebook.png" alt="Awesome Lists">
+                    <p>Facebook'u aç</p>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" color="#888" style="transform: rotate(360deg);">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                </div>
+            </div></a>
+        </div>
+    </div>
+    <br><br>
 </div>
 
 <div id="profile" class="contentDesing">

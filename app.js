@@ -565,3 +565,27 @@ function showPage(pageId) {
             whatsappButton.appendChild(whatsappIcon);
             document.getElementById("whatsapp-container").appendChild(whatsappButton);
         });
+        // Menu Java 
+        function toggleCard(card) {
+            const allCards = document.querySelectorAll('.cardxls');
+            allCards.forEach(c => {
+                if (c !== card) {
+                    c.classList.remove('open');
+                }
+            });
+            card.classList.toggle('open');
+        }
+
+        function filterCards() {
+            const filterValue = document.getElementById('filterInput').value.toUpperCase();
+            const cards = document.querySelectorAll('.cardxls');
+
+            cards.forEach(card => {
+                const cardText = card.getAttribute('data-filter').toUpperCase();
+                if (cardText.includes(filterValue)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }

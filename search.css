@@ -1603,3 +1603,89 @@ font-size: 1.2em;
 .whatsapp-button:hover {
     background-color: #128C7E;
 }
+/* Menu  */
+.body {
+    background-color: rgb(236, 236, 236);
+    color: #fff;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+.containerxls {
+    max-width: 400px;
+    margin: 0 auto;
+}
+.search-barxls {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.search-barxls input {
+    background: none;
+    border: none;
+    color: black;
+    flex-grow: 1;
+    margin-left: 10px;
+    font-size: 16px;
+}
+.search-barxls input::placeholder {
+    color: #606060;
+}
+.sectionxls {
+    margin-bottom: 20px;
+}
+.sectionxls h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.cardxls {
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    max-height: 70px; /* initial height of the card */
+}
+.cardxls-header {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+.cardxls img {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+.cardxls p {
+    font-size: 18px;
+    margin: 0;
+    flex-grow: 1;
+    color: black;
+}
+.cardxls .icon {
+    transform: rotate(90deg); /* initial rotation */
+    transition: transform 0.3s ease;
+}
+.cardxls-content {
+    padding: 15px;
+    background-color: white;
+    display: none; /* initially hidden */
+}
+.cardxls.open .cardxls-content {
+    display: block; /* show content when card is open */
+}
+.cardxls.open .icon {
+    transform: rotate(270deg); /* rotate icon when card is open */
+}
+.cardxls.open {
+    max-height: 200px; /* expanded height of the card */
+}
+.cardxls-content .additional-info {
+    margin-top: 10px;
+    border-top: 1px solid #555; /* horizontal line style */
+    padding-top: 10px;
+}
