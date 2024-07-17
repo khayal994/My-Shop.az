@@ -589,3 +589,191 @@ function showPage(pageId) {
                 }
             });
         }
+
+        // WhatsApp and Products 
+
+        function openProductDetail(productId) {
+            // Əvvəlki məhsul detallarını gizlədək
+            var productDetails = document.getElementsByClassName('product-detail');
+            for (var i = 0; i < productDetails.length; i++) {
+                productDetails[i].style.display = 'none';
+            }
+            
+            // İndiyə qədər gizlədilmiş məhsulun detallarını açaq
+            var selectedProductDetail = document.getElementById('product-detail-' + productId);
+            if (selectedProductDetail) {
+                selectedProductDetail.style.display = 'block';
+            }
+            
+            // Köhnə səhifə elementlərini gizlədək
+            document.getElementById('product-list').style.display = 'none';
+            
+            // URL-ni dəyişdirək ki, məhsul detalları səhifəsini göstərsin
+            history.pushState(null, null, `?product=${productId}`);
+        }
+
+        function backToList() {
+            // Məhsul detallarını gizlədək və köhnə səhifə elementlərini göstərək
+            var productDetails = document.getElementsByClassName('product-detail');
+            for (var i = 0; i < productDetails.length; i++) {
+                productDetails[i].style.display = 'none';
+            }
+            document.getElementById('product-list').style.display = 'block';
+            
+            // URL-ni bərpa edək ki, köhnə səhifəyə dönüş etsin
+            history.pushState(null, null, window.location.pathname);
+        }
+
+        function sendToWhatsApp(productName, productPrice, productLink) {
+            var phoneNumber = "+9940552163114"; // WhatsApp nömrənizi daxil edin
+            var message = "Salam, mən " + productName + " adlı məhsulu sifariş etmək istəyirəm. Məhsulun linki: " + productLink;
+            var url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        // Səhifə yükləndikdə, URL-dən məhsulun parametrini yoxlayaq və uyğun səhifəni göstərək
+        window.onload = function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var productId = urlParams.get('product');
+            if (productId) {
+                openProductDetail(parseInt(productId));
+            }
+        }
+
+        function changeMainImage(thumbnail) {
+            const mainImage = thumbnail.closest('.container').querySelector('.main-image img');
+            mainImage.src = thumbnail.src;
+        }
+
+        function changeQuantity(button, amount) {
+            const quantityInput = button.closest('.quantity').querySelector('.quantity-input');
+            let currentQuantity = parseInt(quantityInput.value);
+            currentQuantity += amount;
+            if (currentQuantity < 1) currentQuantity = 1;
+            quantityInput.value = currentQuantity;
+        }
+
+        // WhatsApp and Products 
+        function openProductDetail(productId) {
+            // Əvvəlki məhsul detallarını gizlədək
+            var productDetails = document.getElementsByClassName('product-detail');
+            for (var i = 0; i < productDetails.length; i++) {
+                productDetails[i].style.display = 'none';
+            }
+            
+            // İndiyə qədər gizlədilmiş məhsulun detallarını açaq
+            var selectedProductDetail = document.getElementById('product-detail-' + productId);
+            if (selectedProductDetail) {
+                selectedProductDetail.style.display = 'block';
+            }
+            
+            // Köhnə səhifə elementlərini gizlədək
+            document.getElementById('product-list').style.display = 'none';
+            
+            // URL-ni dəyişdirək ki, məhsul detalları səhifəsini göstərsin
+            history.pushState(null, null, `?product=${productId}`);
+        }
+
+        function backToList() {
+            // Məhsul detallarını gizlədək və köhnə səhifə elementlərini göstərək
+            var productDetails = document.getElementsByClassName('product-detail');
+            for (var i = 0; i < productDetails.length; i++) {
+                productDetails[i].style.display = 'none';
+            }
+            document.getElementById('product-list').style.display = 'block';
+            
+            // URL-ni bərpa edək ki, köhnə səhifəyə dönüş etsin
+            history.pushState(null, null, window.location.pathname);
+        }
+
+        function sendToWhatsApp(productName, productPrice, productLink) {
+            var phoneNumber = "+9940552163114"; // WhatsApp nömrənizi daxil edin
+            var message = "Salam, mən " + productName + " adlı məhsulu sifariş etmək istəyirəm. Məhsulun linki: " + productLink;
+            var url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        // Səhifə yükləndikdə, URL-dən məhsulun parametrini yoxlayaq və uyğun səhifəni göstərək
+        window.onload = function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var productId = urlParams.get('product');
+            if (productId) {
+                openProductDetail(parseInt(productId));
+            }
+        }
+
+        function changeMainImage(thumbnail) {
+            const mainImage = thumbnail.closest('.container').querySelector('.main-image img');
+            mainImage.src = thumbnail.src;
+        }
+
+        function changeQuantity(button, amount) {
+            const quantityInput = button.closest('.quantity').querySelector('.quantity-input');
+            let currentQuantity = parseInt(quantityInput.value);
+            currentQuantity += amount;
+            if (currentQuantity < 1) currentQuantity = 1;
+            quantityInput.value = currentQuantity;
+        }
+
+        // WhatsApp and Products 
+
+        function openProductDetail(productId) {
+            // Əvvəlki məhsul detallarını gizlədək
+            var productDetails = document.getElementsByClassName('product-detail');
+            for (var i = 0; i < productDetails.length; i++) {
+                productDetails[i].style.display = 'none';
+            }
+            
+            // İndiyə qədər gizlədilmiş məhsulun detallarını açaq
+            var selectedProductDetail = document.getElementById('product-detail-' + productId);
+            if (selectedProductDetail) {
+                selectedProductDetail.style.display = 'block';
+            }
+            
+            // Köhnə səhifə elementlərini gizlədək
+            document.getElementById('product-list').style.display = 'none';
+            
+            // URL-ni dəyişdirək ki, məhsul detalları səhifəsini göstərsin
+            history.pushState(null, null, `?product=${productId}`);
+        }
+
+        function backToList() {
+            // Məhsul detallarını gizlədək və köhnə səhifə elementlərini göstərək
+            var productDetails = document.getElementsByClassName('product-detail');
+            for (var i = 0; i < productDetails.length; i++) {
+                productDetails[i].style.display = 'none';
+            }
+            document.getElementById('product-list').style.display = 'block';
+            
+            // URL-ni bərpa edək ki, köhnə səhifəyə dönüş etsin
+            history.pushState(null, null, window.location.pathname);
+        }
+
+        function sendToWhatsApp(productName, productPrice, productLink) {
+            var phoneNumber = "+9940552163114"; // WhatsApp nömrənizi daxil edin
+            var message = "Salam, mən " + productName + " adlı məhsulu sifariş etmək istəyirəm. Məhsulun linki: " + productLink;
+            var url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        // Səhifə yükləndikdə, URL-dən məhsulun parametrini yoxlayaq və uyğun səhifəni göstərək
+        window.onload = function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var productId = urlParams.get('product');
+            if (productId) {
+                openProductDetail(parseInt(productId));
+            }
+        }
+
+        function changeMainImage(thumbnail) {
+            const mainImage = thumbnail.closest('.container').querySelector('.main-image img');
+            mainImage.src = thumbnail.src;
+        }
+
+        function changeQuantity(button, amount) {
+            const quantityInput = button.closest('.quantity').querySelector('.quantity-input');
+            let currentQuantity = parseInt(quantityInput.value);
+            currentQuantity += amount;
+            if (currentQuantity < 1) currentQuantity = 1;
+            quantityInput.value = currentQuantity;
+        }

@@ -28,83 +28,7 @@
 </head>
 <body class="w3-light-grey">
 <!-- Sidebar/menu -->
-<nav class="w3-sidebar ww w3-collapse w3-white w3-animate-left" id="mySidebar"><br>
 
-    <div class="w3-containers">
-        <i class="fa-solid fa-reply as" onclick="applyFilterAndClose()"></i>
-      <h5 class="w3-containerH5">Filtrlər</h5>
-      <div class="filterxa">
-        <a id="resetFilters" class="sıfırla as" href="#" onclick="resetFilters()" >Sıfırla</a>
-    </div><hr>
-    </div><br>
-    <div class="w3-bar-block">
-        
-      <div class="filter">
-          <label for="sizeFilter">Ölçü</label>
-          <select id="sizeFilter" class="w3-input w3-border">
-              <option value="">Hamısı</option>
-              <option value="s">S</option>
-              <option value="m">M</option>
-              <option value="l">L</option>
-              <option value="xl">XL</option>
-          </select>
-      </div>
-
-      <div class="filter">
-        <label for="brandFilter">Brend</label>
-        <select id="brandFilter">
-            <option value="">Hamısı</option>
-            <option value="brand1">Brend 1</option>
-            <option value="brand2">Brend 2</option>
-            <option value="brand3">Brend 3</option>
-        </select>
-    </div>
-
-      <div class="filter">
-          <label for="shoeSizeFilter">Ayakkabı Ölçüsü</label>
-          <input type="text" id="shoeSizeFilter" placeholder="Ayakkabı ölçüsü daxil edin">
-      </div>
-      <div class="filter">
-          <label for="genderFilter">Cinsiyyət</label><br>
-          <select id="genderFilter">
-              <option value="">Hamısı</option>
-              <option value="men">Kişi</option>
-              <option value="women">Qadın</option>
-          </select>
-      </div>
-
-      <div class="filter">
-          <label for="colorFilter">Rəng</label><br>
-          <select id="colorFilter">
-              <option value="">Hamısı</option>
-              <option value="red">Qırmızı</option>
-              <option value="black">Qara</option>
-              <option value="green">Yaşıl</option>
-              <option value="blue">Mavi</option>
-              <option value="yellow">Sarı</option>
-              <option value="white">Ağ</option>
-              <option value="lime">Lime</option>
-              <option value="gold">Qızılı</option>
-              <option value="beige">Bej</option>
-              <option value="burgundy">Bordo</option>
-              <option value="khaki">Haki</option>
-              <option value="purple">Mor</option>
-              <option value="orange">Narıncı</option>
-          </select>
-
-          <div class="filter">
-            <label for="minPriceFilter">Min Qiymət</label>
-            <input type="number" class="w3-input input w3-border" id="minPriceFilter" placeholder="Min qiymət daxil edin">
-        </div>
-        <div class="filter">
-            <label for="maxPriceFilter">Max Qiymət</label>
-            <input type="number" class="w3-input w3-border" id="maxPriceFilter" placeholder="Max qiymət daxil edin">
-        </div>
-      </div>
-      <p><button  class="w3-button filterDesing w3-block w3-red w3-left-align" type="button" onclick="applyFilterAndClose()"><i class="fa fa-search w3-margin-right"></i> Filterlə</button></p>
-      <br><br><br>
-    </div>
-  </nav>
 
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
@@ -170,6 +94,85 @@
 </div>
 
 <div id="home" class="contentDesing activeDesing">
+    <div id="product-list">
+        <nav class="w3-sidebar ww w3-collapse w3-white w3-animate-left" id="mySidebar"><br>
+
+            <div class="w3-containers">
+                <i class="fa-solid fa-reply as" onclick="applyFilterAndClose()"></i>
+              <h5 class="w3-containerH5">Filtrlər</h5>
+              <div class="filterxa">
+                <a id="resetFilters" class="sıfırla as" href="#" onclick="resetFilters()" >Sıfırla</a>
+            </div><hr>
+            </div><br>
+            <div class="w3-bar-block">
+                
+              <div class="filter">
+                  <label for="sizeFilter">Ölçü</label>
+                  <select id="sizeFilter" class="w3-input w3-border">
+                      <option value="">Hamısı</option>
+                      <option value="s">S</option>
+                      <option value="m">M</option>
+                      <option value="l">L</option>
+                      <option value="xl">XL</option>
+                  </select>
+              </div>
+        
+              <div class="filter">
+                <label for="brandFilter">Brend</label>
+                <select id="brandFilter">
+                    <option value="">Hamısı</option>
+                    <option value="brand1">Brend 1</option>
+                    <option value="brand2">Brend 2</option>
+                    <option value="brand3">Brend 3</option>
+                </select>
+            </div>
+        
+              <div class="filter">
+                  <label for="shoeSizeFilter">Ayakkabı Ölçüsü</label>
+                  <input type="text" id="shoeSizeFilter" placeholder="Ayakkabı ölçüsü daxil edin">
+              </div>
+              <div class="filter">
+                  <label for="genderFilter">Cinsiyyət</label><br>
+                  <select id="genderFilter">
+                      <option value="">Hamısı</option>
+                      <option value="men">Kişi</option>
+                      <option value="women">Qadın</option>
+                  </select>
+              </div>
+        
+              <div class="filter">
+                  <label for="colorFilter">Rəng</label><br>
+                  <select id="colorFilter">
+                      <option value="">Hamısı</option>
+                      <option value="red">Qırmızı</option>
+                      <option value="black">Qara</option>
+                      <option value="green">Yaşıl</option>
+                      <option value="blue">Mavi</option>
+                      <option value="yellow">Sarı</option>
+                      <option value="white">Ağ</option>
+                      <option value="lime">Lime</option>
+                      <option value="gold">Qızılı</option>
+                      <option value="beige">Bej</option>
+                      <option value="burgundy">Bordo</option>
+                      <option value="khaki">Haki</option>
+                      <option value="purple">Mor</option>
+                      <option value="orange">Narıncı</option>
+                  </select>
+        
+                  <div class="filter">
+                    <label for="minPriceFilter">Min Qiymət</label>
+                    <input type="number" class="w3-input input w3-border" id="minPriceFilter" placeholder="Min qiymət daxil edin">
+                </div>
+                <div class="filter">
+                    <label for="maxPriceFilter">Max Qiymət</label>
+                    <input type="number" class="w3-input w3-border" id="maxPriceFilter" placeholder="Max qiymət daxil edin">
+                </div>
+              </div>
+              <p><button  class="w3-button filterDesing w3-block w3-red w3-left-align" type="button" onclick="applyFilterAndClose()"><i class="fa fa-search w3-margin-right"></i> Filterlə</button></p>
+              <br><br><br>
+            </div>
+          </nav>
+    <!-- Ust Navbar  -->
     <section class="border-bottom">
         <div class="top-bar" id="top-bar" style="background-color: white;">
           <span class="delivery-icon" style="color: black;"><i class="fas fa-truck-moving"></i></span>
@@ -201,6 +204,9 @@
         </div>
        
       </section>
+      <!-- Ust Navbar Sonu  -->
+
+      <!-- Navbar  -->
     <div class="header-main  w3-top  w3-large" >
         <div class="logo">
             <h1>My-Shop</h1>
@@ -232,8 +238,10 @@
         </div>
        
     </div>
-    
+    <!-- Navbar Finish  -->
+
     <button class="w3-bar-item w3-button w3-hide-large w3-hover-none filterx" onclick="w3_open();"><i class="fa fa-filter"></i>Filterlə</button><br><br>
+    <!-- Kataloq  -->
 <div class="navbar-containerkat">
     <button class="scroll-btn left mazqi scroll-btn-desktop">&lt;</button>
     <nav class="navbarkat">
@@ -251,11 +259,13 @@
     </nav>
     <button class="scroll-btn right mazqi scroll-btn-desktop">&gt;</button>
 </div>
+<!-- Kataloq Finish  -->
 
+<!-- Products  -->
     <div class="carousel-containerxl">
         <div class="carousel-wrapperxl">
             <!-- Product Card 1 -->
-            <div class="product-cardxl product-cardlar product-cardl product-cardx" data-category="all" data-namex="Qara Rəng Kofta oversizesss" data-pricex="$49.99" data-imagex="sekil 37.jpg" data-id="1" data-name="Məhsul 2" data-price="50" data-image="sekil 1.jpg" data-category-filter="Qara ss Ayaqqabısı kisi ayaqabısı" data-name-filter="Ayaqqabı" data-gender-filter="men" data-color-filter="black" data-size-filter="42" data-price-filter="50" data-brand-filter="brand1">
+            <div class="product-cardxl product-cardlar product-cardl product-cardx" onclick="openProductDetail(1)" data-category="all" data-namex="Qara Rəng Kofta oversizesss" data-pricex="$49.99" data-imagex="sekil 37.jpg" data-id="1" data-name="Məhsul 2" data-price="50" data-image="sekil 1.jpg" data-category-filter="Qara ss Ayaqqabısı kisi ayaqabısı" data-name-filter="Ayaqqabı" data-gender-filter="men" data-color-filter="black" data-size-filter="42" data-price-filter="50" data-brand-filter="brand1">
                 <div class="image-containerxl">
                     <div class="heart-iconxl like-iconx"></div>
                     <span class="badge bg-success position-absolute m-3">-30%</span>
@@ -280,7 +290,7 @@
                 </div>
             </div>
     
-            <div class="product-cardxl product-cardlar product-cardl product-cardx" data-category="all" data-namex="Qara Rəng Kofta oversizesss" data-pricex="$49.99" data-imagex="sekil 37.jpg" data-id="1" data-name="Məhsul 2" data-price="50" data-image="sekil 1.jpg" data-category-filter="Qara ss Ayaqqabısı kisi ayaqabısı" data-name-filter="Ayaqqabı" data-gender-filter="men" data-color-filter="black" data-size-filter="42" data-price-filter="50" data-brand-filter="brand1">
+            <div class="product-cardxl product-cardlar product-cardl product-cardx" onclick="openProductDetail(2)" data-category="all" data-namex="Qara Rəng Kofta oversizesss" data-pricex="$49.99" data-imagex="sekil 37.jpg" data-id="1" data-name="Məhsul 2" data-price="50" data-image="sekil 1.jpg" data-category-filter="Qara ss Ayaqqabısı kisi ayaqabısı" data-name-filter="Ayaqqabı" data-gender-filter="men" data-color-filter="black" data-size-filter="42" data-price-filter="50" data-brand-filter="brand1">
                 <div class="image-containerxl">
                     <div class="heart-iconxl like-iconx"></div>
                     <span class="badge bg-success position-absolute m-3">-30%</span>
@@ -4221,13 +4231,113 @@
         </div>
     
     </div>
+<!-- Products Finish  -->
+</div>
+<!-- Bildirim  -->
     <div id="noProductsMessage" style="display: none; text-align: center; margin-top: 80px;">
-
         <p>Heç bir məhsul tapılmadıi</p>
         <img src="file (1).png" alt="Üzgün icon" style="opacity: 0.3; width: 50px; height: 50px;">
       </div>
+<!-- Bildirim Finish -->
 
+<!-- Whatsapp  -->
       <div id="whatsapp-container"></div>
+<!-- WhatsApp Finish  -->
+
+
+     <!-- Gizli Product   -->
+    <div id="product-detail-1" class="product-detail">
+        <span class="back-to-list" onclick="backToList()">Geri Qayıt</span>
+        <div class="container">
+            <div class="image-gallery">
+                <div class="main-image">
+                    <img src="sekil 89.jpg" alt="Main Product Image">
+                </div>
+                <div class="thumbnail">
+                    <img src="sekil 104.jpg" alt="Product Thumbnail 1" onclick="changeMainImage(this)">
+                    <img src="sekil 138.jpg" alt="Product Thumbnail 2" onclick="changeMainImage(this)">
+                    <img src="sekil 153.jpg" alt="Product Thumbnail 3" onclick="changeMainImage(this)">
+                    <img src="sekil 165.jpg" alt="Product Thumbnail 4" onclick="changeMainImage(this)">
+                </div>
+
+            </div>
+            <div class="product-details">
+                <h1>Letsfit Smart Watch, Fitness Tracker with Heart Rate</h1>
+                <p class="price">$39.99</p>
+                <p class="description">Phasellus sed volutpat orci. Fusce eget lore mauris vehicula elementum gravida nec dui. Aenean aliquam varius ipsum, non ultricies tellus sodales eu. Donec dignissim viverra nunc, ut aliquet magna posuere eget.</p>
+                <div class="sizes">
+                    <h3>Sizes</h3>
+                    <button>XS</button>
+                    <button>S</button>
+                    <button>M</button>
+                    <button>L</button>
+                    <button>XL</button>
+                </div>
+                <div class="colors">
+                    <h3>Color</h3>
+                    <button class="color-option black"></button>
+                    <button class="color-option red"></button>
+                    <button class="color-option grey"></button>
+                </div>
+                <div class="quantity">
+                    <button id="decrease" onclick="changeQuantity(this, -1)">-</button>
+                    <input type="text" id="quantity" value="1">
+                    <button id="increase" onclick="changeQuantity(this, 1)">+</button>
+                </div>
+                <button class="add-to-cart" onclick="sendToWhatsApp('Məhsulun Adı 1', '50 AZN', 'https://khayal994.github.io/Son/?product=1'); event.stopPropagation();">Add to Cart</button>
+                <div class="additional-options">
+                    <button>Add to Wishlist</button>
+                    <button>Share</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Gizli Product 2  -->
+    <div id="product-detail-2" class="product-detail">
+        <span class="back-to-list" onclick="backToList()">Geri Qayıt</span>
+        <div class="container">
+            <div class="image-gallery">
+                <div class="thumbnail">
+                    <img src="sekil 144.jpg" alt="Product Thumbnail 1" onclick="changeMainImage(this)">
+                    <img src="sekil 18.jpg" alt="Product Thumbnail 2" onclick="changeMainImage(this)">
+                    <img src="sekil 53.jpg" alt="Product Thumbnail 3" onclick="changeMainImage(this)">
+                    <img src="sekil 65.jpg" alt="Product Thumbnail 4" onclick="changeMainImage(this)">
+                </div>
+                <div class="main-image">
+                    <img src="sekil 79.jpg" alt="Main Product Image">
+                </div>
+            </div>
+            <div class="product-details">
+                <h1>Letsfit Smart Watch, Fitness Tracker with Heart Rate</h1>
+                <p class="price">$49.99</p>
+                <p class="description">Phasellus sed volutpat orci. Fusce eget lore mauris vehicula elementum gravida nec dui. Aenean aliquam varius ipsum, non ultricies tellus sodales eu. Donec dignissim viverra nunc, ut aliquet magna posuere eget.</p>
+                <div class="sizes">
+                    <h3>Sizes</h3>
+                    <button>XS</button>
+                    <button>S</button>
+                    <button>M</button>
+                    <button>L</button>
+                    <button>XL</button>
+                </div>
+                <div class="colors">
+                    <h3>Color</h3>
+                    <button class="color-option black"></button>
+                    <button class="color-option red"></button>
+                    <button class="color-option grey"></button>
+                </div>
+                <div class="quantity">
+                    <button id="decrease" onclick="changeQuantity(this, -1)">-</button>
+                    <input type="text" id="quantity" value="1">
+                    <button id="increase" onclick="changeQuantity(this, 1)">+</button>
+                </div>
+                <button class="add-to-cart" onclick="sendToWhatsApp('Məhsulun Adı 1', '50 AZN', 'https://khayal994.github.io/Son/?product=2'); event.stopPropagation();">Add to Cart</button>
+                <div class="additional-options">
+                    <button>Add to Wishlist</button>
+                    <button>Share</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div id="tips" class="contentDesing">
