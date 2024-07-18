@@ -1376,18 +1376,7 @@ color: #f39c12;
 margin: 0 2px;
 }
 
-.add-to-cart {
-display: flex;
-justify-content: flex-start;
-align-items: center;
-margin-bottom: 20px;
-padding: 10px 20px;
-background-color: transparent;
-color: #3498db;
-border: none;
-cursor: pointer;
-font-size: 1em;
-}
+
 
 .cart-icon {
 margin-left: 10px;
@@ -1801,15 +1790,7 @@ font-size: 1.2em;
     margin: 0 10px;
 }
 
-.add-to-cart {
-    background-color: black;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
+
 
 .additional-options button {
     background-color: white;
@@ -1911,19 +1892,6 @@ font-size: 1.2em;
 
         .star {
             margin: 0 2px;
-        }
-
-        .add-to-cart {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            margin-bottom: 20px;
-            padding: 10px 20px;
-            background-color: transparent;
-            color: #3498db;
-            border: none;
-            cursor: pointer;
-            font-size: 1em;
         }
 
         .cart-icon {
@@ -2096,16 +2064,7 @@ font-size: 1.2em;
             margin: 0 10px;
         }
         
-        .add-to-cart {
-            background-color: black;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-        
+
         .additional-options button {
             background-color: white;
             border: none;
@@ -2228,6 +2187,15 @@ font-size: 1.2em;
                     margin-bottom: 20px;
                     display: inline-block;
                 }
+                .whats{
+                    background-color: black;
+                    color: white;
+                    padding: 10px 20px;
+                    border: none;
+                    cursor: pointer;
+                    border-radius: 5px;
+                    margin-bottom: 20px;
+                }
                         /* Media query for mobile devices */
                         @media (max-width: 600px) {
                     body {
@@ -2267,6 +2235,22 @@ font-size: 1.2em;
                     .product-details {
                         width: 100%;
                         text-align: center;
+                    }
+                    .whats{
+
+                            background-color: black;
+                            color: white;
+                            padding: 10px 20px;
+                            border: none;
+                            cursor: pointer;
+                            border-radius: 5px;
+                            margin-bottom: 100px;
+                            position: fixed;
+                            bottom: 20px;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            z-index: 1000;
+                            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
                     }
                 }
                 @keyframes slideInFromRight {

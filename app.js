@@ -716,12 +716,13 @@ function showPage(pageId) {
         }
 
         // WhatsApp and Products 
-
+        let selectedColor = '';
+        let selectedSize = '';
 
 
         function sendToWhatsApp(productName, productPrice, productLink) {
             var phoneNumber = "+9940552163114"; // WhatsApp nömrənizi daxil edin
-            var message = "Salam, mən " + productName + " adlı məhsulu sifariş etmək istəyirəm. Məhsulun linki: " + productLink;
+            var message = "Salam, mən " + productName + " adlı məhsulu sifariş etmək istəyirəm. Rəng: " + selectedColor + ", Ölçü: " + selectedSize + ". Məhsulun linki: " + productLink;
             var url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
             window.open(url, '_blank');
         }

@@ -4232,7 +4232,7 @@
     
     </div>
 <!-- Products Finish  -->
-</div>
+
 <!-- Bildirim  -->
     <div id="noProductsMessage" style="display: none; text-align: center; margin-top: 80px;">
         <p>Heç bir məhsul tapılmadıi</p>
@@ -4243,11 +4243,11 @@
 <!-- Whatsapp  -->
       <div id="whatsapp-container"></div>
 <!-- WhatsApp Finish  -->
-
+</div>
 
      <!-- Gizli Product   -->
     <div id="product-detail-1" class="product-detail">
-        <span class="back-to-list" onclick="backToList()">Geri Qayıt</span>
+        <span class="back-to-list" onclick="backToList()"><i class="fa-solid fa-reply" style="color: #000;"></i></span>
         <div class="container">
             <div class="image-gallery">
                 <div class="main-image">
@@ -4267,20 +4267,21 @@
                 <p class="description">Phasellus sed volutpat orci. Fusce eget lore mauris vehicula elementum gravida nec dui. Aenean aliquam varius ipsum, non ultricies tellus sodales eu. Donec dignissim viverra nunc, ut aliquet magna posuere eget.</p>
                 <div class="sizes">
                     <h3>Sizes</h3>
-                    <button>XS</button>
-                    <button>S</button>
-                    <button>M</button>
-                    <button>L</button>
-                    <button>XL</button>
+                    <button onclick="selectSize(this, 'XS')">XS</button>
+                    <button onclick="selectSize(this, 'S')">S</button>
+                    <button onclick="selectSize(this, 'M')">M</button>
+                    <button onclick="selectSize(this, 'L')">L</button>
+                    <button onclick="selectSize(this, 'XL')">XL</button>
                 </div>
                 <div class="colors">
                     <h3>Color</h3>
-                    <button class="color-option black"></button>
-                    <button class="color-option red"></button>
-                    <button class="color-option grey"></button>
+                    <button class="color-option black" onclick="selectColor(this, 'Black')"></button>
+                    <button class="color-option red" onclick="selectColor(this, 'Red')"></button>
+                    <button class="color-option grey" onclick="selectColor(this, 'Grey')"></button>
                 </div>
 
-                <button class="add-to-cart" onclick="sendToWhatsApp('Məhsulun Adı 1', '50 AZN', 'https://khayal994.github.io/My-Shop.az/?product=1'); event.stopPropagation();">Add to Cart</button>
+                <button class="whats" onclick="sendToWhatsApp('Məhsulun Adı 1', '50 AZN', 'https://khayal994.github.io/My-Shop.az/?product=1'); event.stopPropagation();">Add to Cart</button>
+                <br><br><br><br><br>
                 <div class="additional-options">
                     <button>Add to Wishlist</button>
                     <button>Share</button>
