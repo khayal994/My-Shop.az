@@ -717,37 +717,7 @@ function showPage(pageId) {
 
         // WhatsApp and Products 
 
-        function openProductDetail(productId) {
-            // Əvvəlki məhsul detallarını gizlədək
-            var productDetails = document.getElementsByClassName('product-detail');
-            for (var i = 0; i < productDetails.length; i++) {
-                productDetails[i].style.display = 'none';
-            }
-            
-            // İndiyə qədər gizlədilmiş məhsulun detallarını açaq
-            var selectedProductDetail = document.getElementById('product-detail-' + productId);
-            if (selectedProductDetail) {
-                selectedProductDetail.style.display = 'block';
-            }
-            
-            // Köhnə səhifə elementlərini gizlədək
-            document.getElementById('product-list').style.display = 'none';
-            
-            // URL-ni dəyişdirək ki, məhsul detalları səhifəsini göstərsin
-            history.pushState(null, null, `?product=${productId}`);
-        }
 
-        function backToList() {
-            // Məhsul detallarını gizlədək və köhnə səhifə elementlərini göstərək
-            var productDetails = document.getElementsByClassName('product-detail');
-            for (var i = 0; i < productDetails.length; i++) {
-                productDetails[i].style.display = 'none';
-            }
-            document.getElementById('product-list').style.display = 'block';
-            
-            // URL-ni bərpa edək ki, köhnə səhifəyə dönüş etsin
-            history.pushState(null, null, window.location.pathname);
-        }
 
         function sendToWhatsApp(productName, productPrice, productLink) {
             var phoneNumber = "+9940552163114"; // WhatsApp nömrənizi daxil edin
@@ -764,7 +734,39 @@ function showPage(pageId) {
                 openProductDetail(parseInt(productId));
             }
         }
+        function openProductDetail(productId) {
+    // Əvvəlki məhsul detallarını gizlədək
+    var productDetails = document.getElementsByClassName('product-detail');
+    for (var i = 0; i < productDetails.length; i++) {
+        productDetails[i].style.display = 'none';
+    }
+    
+    // İndiyə qədər gizlədilmiş məhsulun detallarını açaq
+    var selectedProductDetail = document.getElementById('product-detail-' + productId);
+    if (selectedProductDetail) {
+        selectedProductDetail.style.display = 'block';
+        selectedProductDetail.style.animation = 'slideInFromRight 0.5s forwards';
+    }
+    
+    // Köhnə səhifə elementlərini gizlədək
+    document.getElementById('product-list').classList.add('hidden');
+    
+    // URL-ni dəyişdirək ki, məhsul detalları səhifəsini göstərsin
+    history.pushState(null, null, `?product=${productId}`);
+}
 
+function backToList() {
+    var selectedProductDetail = document.querySelector('.product-detail[style*="block"]');
+    if (selectedProductDetail) {
+        selectedProductDetail.style.animation = 'slideOutToRight 0.5s forwards';
+        setTimeout(function() {
+            selectedProductDetail.style.display = 'none';
+            document.getElementById('product-list').classList.remove('hidden');
+            // URL-ni bərpa edək ki, köhnə səhifəyə dönüş etsin
+            history.pushState(null, null, window.location.pathname);
+        }, 500); // Animasiya müddəti ilə uyğun gəlməlidir
+    }
+}
         function changeMainImage(thumbnail) {
             const mainImage = thumbnail.closest('.container').querySelector('.main-image img');
             mainImage.src = thumbnail.src;

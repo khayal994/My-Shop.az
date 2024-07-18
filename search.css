@@ -2208,32 +2208,18 @@ font-size: 1.2em;
                     margin: 0 2px;
                 }
         
-                .add-to-cart {
-                    display: flex;
-                    justify-content: flex-start;
-                    align-items: center;
-                    margin-bottom: 20px;
-                    padding: 10px 20px;
-                    background-color: transparent;
-                    color: #3498db;
-                    border: none;
-                    cursor: pointer;
-                    font-size: 1em;
-                }
-        
-                .cart-icon {
-                    margin-left: 10px;
-                    font-size: 1.2em;
-                }
+
         
                 .product-detail {
                     display: none;
+                    height: 100%;
                     padding: 20px;
+                    margin-top: -1px;
                     background-color: #fff;
                     border: 1px solid #ddd;
                     border-radius: 8px;
                     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-                    margin-top: 20px;
+                    animation: slideInFromRight 0.5s forwards; /* Animasiya əlavə olundu */
                 }
         
                 .back-to-list {
@@ -2282,4 +2268,30 @@ font-size: 1.2em;
                         width: 100%;
                         text-align: center;
                     }
+                }
+                @keyframes slideInFromRight {
+                    from {
+                        transform: translateX(100%);
+                        opacity: 0;
+                    }
+                    to {
+                        transform: translateX(0);
+                        opacity: 1;
+                    }
+                }
+                @keyframes slideOutToRight {
+                    from {
+                        transform: translateX(0);
+                        opacity: 1;
+                    }
+                    to {
+                        transform: translateX(100%);
+                        opacity: 0;
+                    }
+                }
+                
+
+                
+                #product-list.hidden {
+                    display: none;
                 }
