@@ -2031,6 +2031,10 @@ font-size: 1.2em;
             margin-right: 10px;
             cursor: pointer;
         }
+        .sizes button.selected {
+            background-color: #000;
+            color: #fff;
+        }
         
         .color-option {
             width: 20px;
@@ -2040,6 +2044,19 @@ font-size: 1.2em;
             display: inline-block;
         }
         
+        .color-option.selected::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -5px;
+            width: 27px;
+            height: 23px;
+            border: 2px solid black;
+            border-radius: 50%;
+        }
+
+
+
         .color-option.black { background-color: black; }
         .color-option.red { background-color: red; }
         .color-option.grey { background-color: grey; }

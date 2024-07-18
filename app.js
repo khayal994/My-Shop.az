@@ -772,6 +772,29 @@ function backToList() {
             const mainImage = thumbnail.closest('.container').querySelector('.main-image img');
             mainImage.src = thumbnail.src;
         }
+        function selectColor(button, color) {
+            selectedColor = color;
+            console.log('Selected color:', selectedColor);
+
+            // Remove the 'selected' class from all color buttons
+            const colorButtons = document.querySelectorAll('.colors .color-option');
+            colorButtons.forEach(btn => btn.classList.remove('selected'));
+
+            // Add the 'selected' class to the clicked button
+            button.classList.add('selected');
+        }
+
+        function selectSize(button, size) {
+            selectedSize = size;
+            console.log('Selected size:', selectedSize);
+
+            // Remove the 'selected' class from all size buttons
+            const sizeButtons = document.querySelectorAll('.sizes button');
+            sizeButtons.forEach(btn => btn.classList.remove('selected'));
+
+            // Add the 'selected' class to the clicked button
+            button.classList.add('selected');
+        }
 
         function changeQuantity(button, amount) {
             const quantityInput = button.closest('.quantity').querySelector('.quantity-input');
